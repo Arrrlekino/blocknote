@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+	#before_action :authenticate_user!
 
 	def index
 		@todos = Todo.all.order('created_at DESC')
@@ -17,7 +18,8 @@ class TodosController < ApplicationController
 	
 	if @todo.valid?
 		@todo.save
-		redirect_to @todo
+		#redirect_to @todo
+		redirect_to todos_path
 	else
 		render action: 'new'
 	end
@@ -31,7 +33,8 @@ class TodosController < ApplicationController
 		@todo = Todo.find(params[:id])
 
 		if @todo.update(todo_params)
-		redirect_to @todo
+		#redirect_to @todo
+		redirect_to todos_path
 	else
 		render action: 'edit'
 	end
