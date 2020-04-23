@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ #not work for users ;-(
  #devise_for :users
  #get '/users/:id'
  resources :users
